@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Sekuya&display=swap');
+
+.sekuya-regular {
+  font-family: "Sekuya", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+body{
+    margin: 0;
+    background-color: black;
+    
+}
+.tela{
+    background-image: url("../assets/brooklyn-night.jfif");
+    background-size: cover;      
+    background-position: center;      
+    background-repeat: no-repeat;
+    width: 100%;                     
+    height: 100vh;
+    padding-top: 5px; 
+}
+
+.nav{
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 25px;
+    
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.nav a{
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+
+}
+
+.Login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100vh;
+}
+
+.form{
+    width: 40%;
+    height: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 0px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#campos{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+#campos img{
+    margin-right: 10px;
+}
+#campos input{
+    border: none;
+    border-radius: 5px;
+    width: 200px;
+    height: 30px;
+
+}
