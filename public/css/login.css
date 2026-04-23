@@ -9,17 +9,16 @@
 
 body{
     margin: 0;
-    background-color: black;
-    
-}
-.tela{
+    font-family: Arial, Helvetica, sans-serif;
     background-image: url("../assets/brooklyn-night.jfif");
     background-size: cover;      
     background-position: center;      
     background-repeat: no-repeat;
     width: 100%;                     
-    height: 100vh;
-    padding-top: 5px; 
+    height: auto;
+    object-fit: cover;
+    display: block;
+    padding-top: 5px;
 }
 
 .nav{
@@ -63,20 +62,46 @@ body{
     align-items: center;
     justify-content: space-evenly;
 }
-
+.form h1{
+    color: white;
+    
+}
 #campos{
     display: flex;
     align-items: center;
     justify-content: center;
-    
 }
 #campos img{
     margin-right: 10px;
+    width: 45px;
+    height: 45px;
 }
 #campos input{
     border: none;
-    border-radius: 5px;
+    border-radius: 25px;
     width: 200px;
     height: 30px;
+}
 
+#campos input::placeholder{
+    padding-left: 10px;
+}
+
+
+button {
+    border: 1px solid transparent;
+    border-radius: 25px;
+    background-color: red;
+    background: radial-gradient(circle, #FA2723, #FA0C00);
+    width: 200px;
+    height: 35px;
+    cursor: pointer;
+    color: white;
+    font-size: 20px;
+}
+
+h3 a{
+    text-decoration: none;
+    color: white;
+    
 }
