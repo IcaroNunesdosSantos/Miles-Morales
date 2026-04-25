@@ -49,7 +49,7 @@ body{
     padding: 10px;
 }
 
-.Login{
+.Cadastro{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -59,8 +59,8 @@ body{
 }
 
 .form{
-    width: 30%;
-    height: 40%;
+    width: 40%;
+    height: 60%;
     background-color: rgba(255, 255, 255, 0.1);
     border: 0px solid rgba(255, 255, 255, 0.1);
     border-radius: 10px;
@@ -80,8 +80,8 @@ body{
 }
 #campos img{
     margin-right: 10px;
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
 }
 #campos input{
     border: none;
@@ -98,7 +98,7 @@ body{
 button {
     border: 1px solid transparent;
     border-radius: 25px;
-    background-color: red;
+    
     background: radial-gradient(circle, #FA2723, #FA0C00);
     width: 200px;
     height: 35px;
@@ -116,13 +116,14 @@ button:hover{
 h3 a{
     text-decoration: none;
     color: white;
+    
 }
 
-.a-cad{
+.a-logar{
     text-shadow: 0 0 21px rgb(255, 255, 255);
 }
 
-.a-cad:hover{
+.a-logar:hover{
     color: black;
     text-shadow: 0 0 21px rgb(0, 195, 255);
 }
