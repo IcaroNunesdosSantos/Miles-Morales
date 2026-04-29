@@ -31,7 +31,7 @@
     <div class="login">
     <div class="alerta_erro">
       <div class="card_erro" id="cardErro">
-        <span id="mensagem_erro"></span>
+        <span style="color: white;" id="mensagem_erro"></span>
       </div>
     </div>
 
@@ -102,6 +102,39 @@
       return false;
     } else {
       setInterval(sumirMensagem, 5000);
+    }
+
+    let caixaBaixa = senhaVar.toLowerCase;
+    let caixaAlta = senhaVar.toUpperCase;
+    let tamSenha = senhaVar.length;
+    let criterios = 0;
+    
+    if(tamSenha >= 8){
+      criterios++;
+    }
+    if(senhaVar != caixaBaixa){
+      criterios++;
+    }
+    if(senhaVar != caixaAlta){
+      criterios++;
+    }
+
+    if(criterios == 3){
+      setInterval(sumirMensagem, 5000);
+    }else if(criterios == 2){
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "(Senha média)";
+
+      finalizarAguardar();
+      return false;
+    }else if(criterios == 1){
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "(Senha Fraca)";
+
+      finalizarAguardar();
+      return false;
     }
 
     // Enviando o valor da nova input
