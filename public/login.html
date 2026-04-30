@@ -40,19 +40,24 @@
                 <h1 class="bangers-regular">Login</h1>
                 <div id="campos" class="email">
                     <img src="./assets/user (1).png" alt="">
-                    <input type="text" id="email" placeholder="email@example.com">
+                    <input type="text" id="ipt_email" placeholder="email@example.com">
                 </div>
 
                 <div id="campos" class="senha">
                     <img src="./assets/padlock.png" alt="">
-                    <input type="text" id="senha" placeholder="senha">
+                    <input type="text" id="ipt_senha" placeholder="senha">
                 </div>
                 
                 <div>
-                    <a href="#"><button>Login</button></a>
+                    <button onclick="entrar()">Login</button>
                 </div>
 
             </div>
+
+            <div id="div_aguardar" class="loading-div">
+                    <img src="./assets/infinite-mathematical-symbol.png" id="loading-gif">
+                </div>
+
             <div id="div_erros_login"></div>
 
             <h3>Novo por aqui? <a class="a-cad bangers-regular" href="cadastro.html">Cadastre-se</a></h3>
@@ -67,8 +72,8 @@
     function entrar() {
         aguardar();
 
-        var emailVar = email_input.value;
-        var senhaVar = senha_input.value;
+        var emailVar = ipt_email.value;
+        var senhaVar = ipt_senha.value;
 
         if (emailVar == "" || senhaVar == "") {
             cardErro.style.display = "block"
@@ -103,11 +108,10 @@
                     console.log(JSON.stringify(json));
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.id;
-                    sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
+                    
 
                     setTimeout(function () {
-                        window.location = "./dashboard/cards.html";
+                        window.location = "./index.html";
                     }, 1000); // apenas para exibir o loading
 
                 });
