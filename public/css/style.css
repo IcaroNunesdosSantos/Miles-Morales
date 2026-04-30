@@ -139,6 +139,45 @@ body{
     color: grey;
 }
 
+/* ORIGEM */
+.origem{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 2%;
+    color: white;
+}
+
+.info-origem{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 15px;
+    padding: 2%;
+}
+
+.img-origem img{
+    width: auto;
+    height: 350px;
+    box-shadow: 0 0 21px rgb(255, 0, 0);
+    border-radius: 15px;
+}
+
+.text-origem h1{
+    font-size: 35px;
+    text-shadow: 0 0 21px rgb(255, 0, 0);
+}
+
+.text-origem h3{
+    font-size: 20px;
+    text-shadow: 0 0 21px rgb(255, 0, 0);
+}
+
+.text-origem p{
+    font-size: 15px;
+    white-space: pre-wrap;
+}
+
 
 /* HABILIDADES */
 
