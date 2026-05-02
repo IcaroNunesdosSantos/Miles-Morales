@@ -90,6 +90,13 @@ body{
     height: 30px;
 }
 
+#campos select{
+    border: none;
+    border-radius: 25px;
+    width: 200px;
+    height: 30px;
+}
+
 #campos input::placeholder{
     padding-left: 10px;
 }
