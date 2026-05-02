@@ -43,7 +43,7 @@ function cadastrar(req, res) {
     var nome = req.body.nomeServer;
     var email = req.body.emailServer;
     var dtNasc = req.body.dtNascServer;
-    var cpf = req.body.cpfServer;
+    var gender = req.body.genderServer;
     var senha = req.body.senhaServer;
 
     // Faça as validações dos valores
@@ -56,7 +56,7 @@ function cadastrar(req, res) {
     } else {
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome, email, dtNasc, cpf, senha)
+        usuarioModel.cadastrar(nome, email, dtNasc, gender, senha)
             .then(
                 function (resultado) {
                     res.json(resultado);
