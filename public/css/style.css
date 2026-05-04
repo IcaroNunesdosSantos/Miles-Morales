@@ -53,6 +53,20 @@ body{
     padding: 10px;
 }
 
+.btn-sair{
+    background-color: #FF0000;
+    border: 1px solid #FF0000;
+    border-radius: 25px;
+    width: 90px;
+    height: 20px;
+    font-size: 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
 .intro{
     display: flex;
     flex-direction: column;
@@ -201,9 +215,9 @@ hr{
 }
 
 .HQ h1{
-    color: white;
+    color: black;
     font-size: 40px;
-    text-shadow: 0 0 21px rgb(255, 0, 0);
+    text-shadow: 0 0 2px rgb(255, 0, 0);
 }
 .timeline {
     display: flex;
