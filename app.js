@@ -17,6 +17,7 @@ var app = express();
 
 var indexRouter = require("./src/routes/index");
 var usuarioRouter = require("./src/routes/usuarios");
+var rankingRouter = require("./src/routes/ranking");
 
 
 app.use(express.json());
@@ -27,7 +28,7 @@ app.use(cors());
 
 app.use("/", indexRouter);
 app.use("/usuarios", usuarioRouter);
-
+app.use("/ranking", rankingRouter);
 
 app.listen(PORTA_APP, function () {
     console.log(`

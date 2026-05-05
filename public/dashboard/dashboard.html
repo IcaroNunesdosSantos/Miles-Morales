@@ -4,8 +4,147 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-</head>
-<body>
+    <link rel="stylesheet" href="../css/dashboard.css">
     
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body onload="carregarRanking()">
+    <div class="nav">
+                <div id="nav_logo">
+                    <a class="logo bangers-regular" href="index.html">MM</a>
+                </div>
+                <div id="nav_links">
+                    <a href="index.html">Inicio</a>
+                    <a href="#sobre">Sobre</a>
+                    <a href="">Brooklyn</a>
+                    <a href="">Poderes</a>
+                </div>
+                <div>
+                    <a href="login.html">Login</a>
+                    <span>|</span>
+                    <a id="cadastro" href="cadastro.html">Cadastro</a>
+                </div>
+        </div>
+
+        <div class="dashboard">
+            <div class="superior">
+                <div class="kpi">
+                    <h5>Quantidade de jogadores</h5>
+                    <span>10</span>
+                </div>
+                <div class="kpi">
+                    <h5>Taxa de conclusão do game</h5>
+                    <span>70%</span>
+                </div>
+                <div class="kpi">
+                    <h5>Spider-man</h5>
+                    <span>19</span>
+                </div>
+                <div class="kpi">
+                    <h5>Spider-girl</h5>
+                    <span>6</span>
+                </div>
+            </div>
+            
+            <div class="inferior">
+                <div class="grafico">
+                    <canvas id="myChart"></canvas>
+                </div>
+                <div class="ranking">
+                    <center><h3>Ranking</h3></center>
+                    <ul>
+                        <li>
+                            <div>
+                                <span>🏆</span>
+                                <span id="user0"></span>
+                            </div>
+                            <span id="rnk0"></span>
+                        </li>
+                            
+                        <li>
+                            <div>
+                                <span>🥈</span>
+                                <span id="user1"></span>
+                            </div>
+                            <span id="rnk1"></span>
+                        </li>
+                            
+                        <li>
+                            <div>
+                                <span>🥉</span>
+                                <span id="user2"></span>
+                            </div>
+                            <span id="rnk2"></span>
+                        </li>
+                            
+                        <li>
+                            <div>
+                                <span>4️⃣</span>
+                                <span id="user3"></span>
+                            </div>
+                            <span id="rnk3"></span>
+                        </li>
+                            
+                        <li>
+                            <div>
+                                <span>5️⃣</span>
+                                <span id="user4"></span>
+                            </div>
+                            <span id="rnk4"></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 </body>
 </html>
+
+<script>
+    function carregarRanking() {
+        fetch("/ranking/buscar").then(res => res.json())
+        .then(resultado => {
+            let usuarios = [];
+            let pontuacoes = [];
+
+             resultado.forEach(item => {
+                usuarios.push(item.nome);
+                pontuacoes.push(item.pontuacao);
+
+            });
+            
+            console.log(usuarios);
+            console.log(pontuacoes);
+
+            for (let i = 0; i < usuarios.length; i++) {
+                document.getElementById(`user${[i]}`).innerHTML = 
+                    `${usuarios[i]}`
+                document.getElementById(`rnk${[i]}`).innerHTML = 
+                    `${pontuacoes[i]} Pontos`
+            }
+
+        });
+    }
+</script>
+
+<script>
+  const ctx = document.getElementById('myChart');
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      datasets: [{
+        label: '# of Votes',
+        data: [12, 19, 3, 5, 2, 3],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>
