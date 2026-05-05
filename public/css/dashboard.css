@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
+.bangers-regular {
+  font-family: "Bangers", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body{
+    margin: 0;
+    background-color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 5px;
+}
+
+.nav{
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    padding: 20px;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 25px;
+    box-shadow: 0 0 5px #FF0000;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.logo{
+    font-size: 25px;
+    text-shadow: 0 0 5px #FF0000;
+}
+
+.nav a{
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+}
+
+.dashboard{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.superior{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    gap: 30px;
+}
+
+.kpi{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #FF0000;
+    border-radius: 15px;
+    width: 200px;
+    height: 100px;
+    padding: 10px;
+}
+
+.kpi h5{
+    font-size: 14px;
+}
+
+.kpi span{    
+    font-size: 25px;
+}
+
+.inferior{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    gap: 30px;
+}
+
+.grafico{
+    position: relative;
+    height: 62vh; /* Relative units work best */
+    width: 60vw;
+    border: 1px solid #FF0000;
+    border-radius: 15px;
+}
+
+.ranking{
+    box-shadow: 0 0 5px #FF0000;
+    border-radius: 15px;
+    height: 43vh;
+    width: 27vw;
+    
+}
+
+.line{
+    border-bottom: 1px solid rgb(92, 91, 91); 
+    width: 260px;
+    height: 3px;
+}
+
+.ranking ul{
+    margin: 10px;
+    padding: 5px;
+    
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+       
+}
+
+ul div{
+    display: flex;
+    gap: 23px;
+    align-items: center;
+}
+
+li{
+    border-bottom: 1px solid #ddd; 
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+li:last-child{
+    border-bottom: none;
+}
