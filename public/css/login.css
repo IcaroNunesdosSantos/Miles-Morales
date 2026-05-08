@@ -1,11 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
 
 .bangers-regular {
-  font-family: "Bangers", system-ui;
-  font-weight: 400;
-  font-style: normal;
+    font-family: "Bangers", system-ui;
+    font-weight: 400;
+    font-style: normal;
 }
 
+:root{
+    --bg: #050505;
+    --card: #111111;
+    --red: #ff003c;
+    --red-light: #ff335f;
+    --text: #ffffff;
+    --gray: #9a9a9a;
+}
 
 body{
     margin: 0;
@@ -20,7 +28,7 @@ body{
     height: auto;
     object-fit: cover;
     display: block;
-    padding-top: 5px;
+    padding-top: 10px;
     overflow: hidden;
 }
 
@@ -30,23 +38,60 @@ body{
     justify-content: space-between;
     align-items: center;
     background-color: black;
-    padding: 20px;
+    padding: 15px;
     border: 1px solid rgb(0, 0, 0);
     border-radius: 25px;
     box-shadow: 0 0 5px #FF0000;
-    margin-left: 100px;
-    margin-right: 100px;
+    margin-left: 65px;
+    margin-right: 65px;
+    backdrop-filter: blur(10px);
 }
 
 .logo{
-    font-size: 25px;
-    text-shadow: 0 0 5px #FF0000;
+    font-size: 35px;
+    color: white;
+
+    text-shadow: 0 0 5px var(--red);
+    transition: .3s;
+}
+
+.logo:hover{
+    transform: scale(1.05);
 }
 
 .nav a{
     text-decoration: none;
     color: white;
-    padding: 10px;
+    transition: .3s;
+}
+
+#nav_links{
+    display: flex;
+    gap: 35px;
+}
+
+#nav_links a{
+    position: relative;
+    font-size: 15px;
+}
+
+#nav_links a::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0%;
+    height: 2px;
+    background-color: var(--red);
+    transition: .3s;
+}
+
+#nav_links a:hover::after{
+    width: 100%;
+}
+
+.nav a:hover{
+    color: var(--red-light);
 }
 
 .Login{
