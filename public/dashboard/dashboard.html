@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../css/dashboard.css">
-    
+    <script src="../js/sessao.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body onload="carregarRanking()">
@@ -20,9 +20,7 @@
                     <a href="">Poderes</a>
                 </div>
                 <div>
-                    <a href="login.html">Login</a>
-                    <span>|</span>
-                    <a id="cadastro" href="cadastro.html">Cadastro</a>
+                    <button class="btn-sair" onclick="limparSessao()"><span>Sair</span></button>
                 </div>
         </div>
 
@@ -48,8 +46,10 @@
             
             <div class="inferior">
                 <div class="grafico">
+                    <h1>Aranhas mais escolhidas como favoritas</h1> <br>
                     <canvas id="myChart"></canvas>
                 </div>
+                
                 <div class="ranking">
                     <center><h3>Ranking</h3></center>
                     <ul>
@@ -127,24 +127,67 @@
 </script>
 
 <script>
-  const ctx = document.getElementById('myChart');
+const ctx = document.getElementById('myChart');
 
-  new Chart(ctx, {
+new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-      datasets: [{
-        label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
-        borderWidth: 1
-      }]
+        labels: ['Miles Morales', 'Gwen-Stassy', 'Prowler', 'Miles', 'Venom', `Miguel o'Hara`],
+        datasets: [{
+            label: 'Votos',
+            data: [12, 19, 3, 5, 2, 3],
+
+            borderRadius: 12,
+            
+            backgroundColor: [
+                '#ff101f',
+                '#ff101f',
+                '#ff101f',
+                '#ff101f',
+                '#ff101f',
+                '#ff101f'
+            ],
+
+            borderWidth: 0
+        }],
+        
     },
+
     options: {
-      scales: {
-        y: {
-          beginAtZero: true
+        responsive: true,
+        maintainAspectRatio: false,
+        
+        plugins: {
+            legend: {
+                display: false
+            }
+        },
+
+        scales: {
+
+            x: {
+                ticks: {
+                    color: '#999',
+                    font: {
+                        size: 17
+                    }
+                },
+
+                grid: {
+                    display: false
+                }
+            },
+
+            y: {
+                ticks: {
+                    color: '#999'
+                },
+
+                grid: {
+                    color: 'rgba(255,255,255,.05)'
+                }
+            }
         }
-      }
     }
-  });
+});
 </script>
