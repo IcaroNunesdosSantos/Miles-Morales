@@ -205,6 +205,10 @@ body{
 }
 
 .card_sobre{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
     flex: 1;
     width: 150px;
     height: 100px;
@@ -358,15 +362,73 @@ hr{
     gap: 110px;
 }
 
+/* FILMES */
 
+.filmes {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: white;
+    margin: 2%;
+}
+
+.infos-filmes{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    
+}
+
+.title-filmes{
+    font-size: 21px;
+    text-shadow: 0 0 5px var(--red);
+}
+.p1 p{
+    font-size: 17px;
+    white-space: pre-wrap;
+}
+
+.p1 span:hover{
+    color: var(--red-light);
+    text-shadow: 0 0 3px var(--red); 
+}
+
+.p2 p{
+    font-size: 17px;
+    white-space: pre-wrap;
+}
+
+.p2 span:hover{
+    color: var(--red-light);
+    text-shadow: 0 0 3px var(--red); 
+}
+
+.img-filme img{
+    width: 500px;
+    height: auto;
+    box-shadow: 0 0 21px rgb(255, 0, 0);
+    border-radius: 15px;
+}
+
+.img-filme1 img{
+    width: 400px;
+    height: 400px;
+    box-shadow: 0 0 21px rgb(255, 0, 0);
+    border-radius: 15px;
+}
 
 /* HABILIDADES */
 
 
 .habilidades{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     color: white;
-    margin: 2%;
-    margin-top: 4%;
+    margin: 0;
+    margin-top: 2%;
+    margin-bottom: 4%;
 }
 
 .habilidades h1{
@@ -374,11 +436,15 @@ hr{
     text-shadow: 0 0 21px rgb(182, 75, 75);
 }
 
+.title-hab{
+    margin-bottom: 40px;
+}
+
 .box_hab{
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
-    gap: 24px;
+    justify-content: space-around;
+    gap: 50px;
     margin-left: 64px;
     margin-right: 64px;
 }
@@ -387,6 +453,7 @@ hr{
     flex: 1;
     box-shadow: 0 0 5px rgb(114, 114, 114);
     height: 200px;
+    width: 300px;
     border: 1px solid rgb(95, 95, 95);
     border-radius: 10px;
     background-color: rgb(17, 17, 17);
@@ -470,6 +537,7 @@ hr{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 2%;
 }
 
 .title-brk{
@@ -478,6 +546,7 @@ hr{
     justify-content: center;
     align-items: center;
     font-weight: bold;
+    margin-bottom: 2%;
 }
 
 .title-brk .brk{
@@ -487,5 +556,4 @@ hr{
 
 .info-brk .frase{
     text-shadow: 0 0 5px #FF0000;
-
 }

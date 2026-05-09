@@ -8,16 +8,16 @@
     <script src="../js/sessao.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-<body onload="carregarRanking()">
+<body>
     <div class="nav">
                 <div id="nav_logo">
-                    <a class="logo bangers-regular" href="index.html">MM</a>
+                    <a class="logo bangers-regular" href="../index.html">MM</a>
                 </div>
                 <div id="nav_links">
-                    <a href="index.html">Inicio</a>
-                    <a href="#sobre">Sobre</a>
-                    <a href="">Brooklyn</a>
-                    <a href="">Poderes</a>
+                    <a href="../homeAutenticada.html">Inicio</a>
+                    <a href="../homeAutenticada.html#sobre">Sobre</a>
+                    <a href="../homeAutenticada.html#brooklyn">Brooklyn</a>
+                    <a href="../homeAutenticada.html#poderes">Poderes</a>
                 </div>
                 <div>
                     <button class="btn-sair" onclick="limparSessao()"><span>Sair</span></button>
@@ -36,11 +36,11 @@
                 </div>
                 <div class="kpi">
                     <h5>Spider-man</h5>
-                    <span>19</span>
+                    <span id="kpi_spiderMan"></span>
                 </div>
                 <div class="kpi">
                     <h5>Spider-girl</h5>
-                    <span>6</span>
+                    <span id="kpi_spiderGirl"></span>
                 </div>
             </div>
             
@@ -100,6 +100,46 @@
 </html>
 
 <script>
+    function carregarGeneroMas(){
+        fetch("/kpis/generoMas").then(res => res.json())
+        .then(resultado => {
+            let generoMas = 0;
+            
+             resultado.forEach(item => {
+                generoMas = item.generoMas;
+            });
+            
+            console.log(generoMas);
+            
+            document.getElementById(`kpi_spiderMan`).innerHTML =
+                `${generoMas}`
+            
+        });
+    }
+
+    carregarGeneroMas()
+    setInterval(carregarGeneroMas, 10000);
+
+    function carregarGeneroFem(){
+        fetch("/kpis/generoFem").then(res => res.json())
+        .then(resultado => {
+            let generoFem = 0;
+            
+             resultado.forEach(item => {
+                generoFem = item.generoFem;
+            });
+            
+            console.log(generoFem);
+            
+            document.getElementById(`kpi_spiderGirl`).innerHTML =
+                `${generoFem}`
+            
+        });
+    }
+
+    carregarGeneroFem()
+    setInterval(carregarGeneroFem, 10000);
+
     function carregarRanking() {
         fetch("/ranking/buscar").then(res => res.json())
         .then(resultado => {
@@ -124,6 +164,9 @@
 
         });
     }
+
+    carregarRanking()
+    setInterval(carregarRanking, 10000);
 </script>
 
 <script>
@@ -132,20 +175,21 @@ const ctx = document.getElementById('myChart');
 new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ['Miles Morales', 'Gwen-Stassy', 'Prowler', 'Miles', 'Venom', `Miguel o'Hara`],
+        labels: ['Miles Morales', 'Gwen-Stassy', 'Peter B. Parker', `Porco-Aranha`, 'Jessica Drew', `Hobie(Aranha Punk)`, `Spider-Noir`],
         datasets: [{
             label: 'Votos',
-            data: [12, 19, 3, 5, 2, 3],
+            data: [12, 19, 3, 5, 2, 3, 2],
 
             borderRadius: 12,
             
             backgroundColor: [
                 '#ff101f',
-                '#ff101f',
-                '#ff101f',
-                '#ff101f',
-                '#ff101f',
-                '#ff101f'
+                '#f8bbd0',
+                '#ff0f00',
+                '#BB0000',
+                '#800000',
+                '#884503',
+                '#000000'
             ],
 
             borderWidth: 0
@@ -169,7 +213,7 @@ new Chart(ctx, {
                 ticks: {
                     color: '#999',
                     font: {
-                        size: 17
+                        size: 12
                     }
                 },
 
