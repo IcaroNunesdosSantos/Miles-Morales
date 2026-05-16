@@ -423,11 +423,8 @@
             </div>
         </div>
     </div>
-
+    
     <div class="favs">
-        <div id="alertaVoto" class="alertaVoto">
-            AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        </div>
         <div class="infos-favs">
             <div class="title-filmes">
                 <h1 class="bangers-regular">Qual o seu favorito?</h1>
@@ -445,6 +442,11 @@
                 <h3 class="h3-favs bangers-regular">diz ai para gente!!</h3>
                 <h2 class="h2-favs bangers-regular">Qual é o seu favorito?!</h2>
             </div>
+        </div>
+
+        <div id="alertaVoto" class="alertaVoto">
+            <span>Seu voto foi contabilizado com sucesso!!</span>
+            <button class="btn-fechar" onclick="fecharAlerta()">Fechar</button>
         </div>
 
         <div class="escolha-favs">
@@ -616,12 +618,16 @@
                 
             })
         }).then(function(resposta){
-            document.getElementById("alertaVoto").style.display = flex;
+            document.getElementById("alertaVoto").style.display = 'flex';
             console.log("Atualizado!");
         }).catch(function(erro){
             console.log(erro);
         })
 
+    }
+
+    function fecharAlerta(){
+        document.getElementById("alertaVoto").style.display = 'none';
     }
 
 
