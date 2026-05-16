@@ -445,10 +445,37 @@
         </div>
 
         <div class="escolha-favs">
-            <img src="./assets/spider's/,, Hobie Brown — Spider-Man_ Across The Spider-Verse _.jfif" alt="">
-            <h4 class="bangers-regular">Hobie Brown</h4>
-            <button class="btn-favs">Escolher</button>
+
+            <div class="slides" id="slides">
+                <button class="btn-favs anterior" onclick="voltar()">❮</button>
+                <div class="slide ativo">
+                    <img src="./assets/spider's/Miles Morales Icon.jfif" alt="">
+                    <h4 class="bangers-regular">Miles Morales</h4>
+                </div>
+                <div class="slide">
+                    <img src="./assets/spider's/,, Hobie Brown — Spider-Man_ Across The Spider-Verse _.jfif" alt="">
+                    <h4 class="bangers-regular">Hobie Brown</h4>
+                </div>
+                <div class="slide">
+                    <img src="./assets/spider's/Jessica_Drew.jfif" alt="">
+                    <h4 class="bangers-regular">Jessica Drew</h4>
+                </div>
+                <div class="slide">
+                    <img src="./assets/spider's/✭ spider-noir.jfif" alt="">
+                    <h4 class="bangers-regular">Spider-Noir</h4>
+                </div>
+                <div class="slide">
+                    <img src="./assets/spider's/SpiderByte.jpg" alt="">
+                    <h4 class="bangers-regular">Margo Kess (SpiderByte)</h4>
+                </div>
+                <button class="btn-favs proximo" onclick="avancar()">❯</button>
+            </div>
+
+            <button class="btn-enviar" onclick="enviarFav()">Escolha</button>
+
         </div>
+
+
 
     </div>
 
@@ -531,3 +558,67 @@
 
 </body>
 </html>
+
+<script>
+
+    /* Carrossel */
+
+    let slideAtual = 1;
+
+    let slides = document.querySelectorAll(".slide");
+
+    console.log(slides);
+
+    function mostrarSlide() {
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].classList.remove("ativo")
+        }
+
+        slides[slideAtual].classList.add("ativo");
+    }
+
+    function avancar() {
+        slideAtual++;
+
+        if(slideAtual >= slides.length){
+            slideAtual = 0;
+        }
+
+        mostrarSlide();
+    }
+
+    function voltar() {
+        slideAtual--;
+
+        if(slideAtual < 0){
+            slideAtual = slides.length - 1;
+        }
+
+        mostrarSlide();
+    }
+
+    setInterval(avancar, 7000);
+
+    /* Enviar */
+
+    function enviarFav(){
+        let idAranha = slideAtual;
+
+        fetch(`/favs/atualizar/${idAranha}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                
+            })
+        }).then(function(resposta){
+            console.log("Atualizado!");
+        }).catch(function(erro){
+            console.log(erro);
+        })
+
+    }
+
+
+</script>
