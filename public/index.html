@@ -425,6 +425,9 @@
     </div>
 
     <div class="favs">
+        <div id="alertaVoto" class="alertaVoto">
+            AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        </div>
         <div class="infos-favs">
             <div class="title-filmes">
                 <h1 class="bangers-regular">Qual o seu favorito?</h1>
@@ -613,6 +616,7 @@
                 
             })
         }).then(function(resposta){
+            document.getElementById("alertaVoto").style.display = flex;
             console.log("Atualizado!");
         }).catch(function(erro){
             console.log(erro);

@@ -499,7 +499,6 @@ hr{
 }
 
 
-
 .btn-favs{
     background: #000000;
     top: 50%;
@@ -572,6 +571,9 @@ hr{
     transform: scale(.96);
 }
 
+.alertaVoto{
+    display: none;
+}
 
 /* HABILIDADES */
 
