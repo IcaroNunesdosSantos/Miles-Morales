@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
+    <div id="travarScroll">
     <!-- HEADER -->
     <div class="header">
         <!-- NAVBAR -->
@@ -424,8 +425,8 @@
         </div>
     </div>
     
-    <div class="favs">
-        <div class="infos-favs">
+    <div id="favs" class="favs">
+        <div id="infos_favs" class="infos-favs">
             <div class="title-filmes">
                 <h1 class="bangers-regular">Qual o seu favorito?</h1>
             </div>
@@ -449,7 +450,7 @@
             <button class="btn-fechar" onclick="fecharAlerta()">Fechar</button>
         </div>
 
-        <div class="escolha-favs">
+        <div id="escolha_favs" class="escolha-favs">
 
             <div class="slides" id="slides">
                 <button class="btn-favs anterior" onclick="voltar()">❮</button>
@@ -560,6 +561,7 @@
 
     </div>
             
+    </div>
 
 </body>
 </html>
@@ -619,6 +621,9 @@
             })
         }).then(function(resposta){
             document.getElementById("alertaVoto").style.display = 'flex';
+            document.getElementById("infos_favs").style.pointerEvents = 'none';
+            document.getElementById("escolha_favs").style.pointerEvents = 'none';
+            
             console.log("Atualizado!");
         }).catch(function(erro){
             console.log(erro);
@@ -628,6 +633,9 @@
 
     function fecharAlerta(){
         document.getElementById("alertaVoto").style.display = 'none';
+        document.getElementById("infos_favs").style.pointerEvents = '';
+        document.getElementById("escolha_favs").style.pointerEvents = '';
+        
     }
 
 
