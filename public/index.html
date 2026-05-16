@@ -570,7 +570,7 @@
 
     /* Carrossel */
 
-    let slideAtual = 1;
+    let slideAtual = 0;
 
     let slides = document.querySelectorAll(".slide");
 
@@ -609,7 +609,7 @@
     /* Enviar */
 
     function enviarFav(){
-        let idAranha = slideAtual;
+        let idAranha = slideAtual+1;
 
         fetch(`/favs/atualizar/${idAranha}`, {
             method: "PUT",
