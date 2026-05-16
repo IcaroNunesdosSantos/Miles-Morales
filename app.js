@@ -19,6 +19,7 @@ var indexRouter = require("./src/routes/index");
 var usuarioRouter = require("./src/routes/usuarios");
 var rankingRouter = require("./src/routes/ranking");
 var kpisRouter = require("./src/routes/kpis");
+var favsRouter = require("./src/routes/favs");
 
 
 app.use(express.json());
@@ -31,6 +32,8 @@ app.use("/", indexRouter);
 app.use("/usuarios", usuarioRouter);
 app.use("/ranking", rankingRouter);
 app.use("/kpis", kpisRouter);
+app.use("/favs", favsRouter);
+
 
 app.listen(PORTA_APP, function () {
     console.log(`

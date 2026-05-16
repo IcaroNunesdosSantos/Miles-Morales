@@ -170,68 +170,86 @@
 </script>
 
 <script>
-const ctx = document.getElementById('myChart');
 
-new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ['Miles Morales', 'Gwen-Stassy', 'Peter B. Parker', `Porco-Aranha`, 'Jessica Drew', `Hobie(Aranha Punk)`, `Spider-Noir`],
-        datasets: [{
-            label: 'Votos',
-            data: [12, 19, 3, 5, 2, 3, 2],
-
-            borderRadius: 12,
-            
-            backgroundColor: [
-                '#ff101f',
-                '#f8bbd0',
-                '#ff0f00',
-                '#BB0000',
-                '#800000',
-                '#884503',
-                '#000000'
-            ],
-
-            borderWidth: 0
-        }],
-        
-    },
-
-    options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        
-        plugins: {
-            legend: {
-                display: false
+function carregarGraficoFavoritos() {
+    fetch("/favs/buscar", { cache: 'no-store' })
+        .then(function (response) {
+            if (!response.ok) {
+                throw new Error('Erro ao carregar os dados do gráfico');
             }
-        },
+            return response.json();
+        })
+        .then(function (resultado) {
+            console.log('Dados recebidos para o gráfico:', resultado);
 
-        scales: {
+            let labels = resultado.map(function (item) {
+                return item.nome;
+            });
+            let valores = resultado.map(function (item) {
+                return item.pontuacao;
+            });
 
-            x: {
-                ticks: {
-                    color: '#999',
-                    font: {
-                        size: 12
+            let cores = [
+                '#FF0000',
+                '#FF0000',
+                '#FF0000',
+                '#FF0000',
+                '#FF0000'
+            ];
+
+            let bordas = [
+                '#FF0000',
+                '#FF0000',
+                '#FF0000',
+                '#FF0000',
+                '#FF0000'
+            ];
+
+            const data = {
+                labels: labels,
+                datasets: [{
+                    label: 'Votos favoritos',
+                    data: valores,
+                    backgroundColor: cores,
+                    borderColor: bordas,
+                    borderWidth: 1
+                }]
+            };
+
+            const config = {
+                type: 'bar',
+                data: data,
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                precision: 0
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top'
+                        }
                     }
-                },
-
-                grid: {
-                    display: false
                 }
-            },
+            };
 
-            y: {
-                ticks: {
-                    color: '#999'
-                },
+            const ctx = document.getElementById('myChart').getContext('2d');
 
-                grid: {
-                    color: 'rgba(255,255,255,.05)'
-                }
+            if (window.myFavsChart) {
+                window.myFavsChart.destroy();
             }
-        }
-    }
-});
+
+            window.myFavsChart = new Chart(ctx, config);
+        })
+        .catch(function (error) {
+            console.error(error);
+        });
+}
+
+carregarGraficoFavoritos();
+setInterval(carregarGraficoFavoritos, 10000);
 </script>
